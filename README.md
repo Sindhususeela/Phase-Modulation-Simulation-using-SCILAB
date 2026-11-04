@@ -81,22 +81,27 @@ Verify the generated waveform using Tabulation and Model Waveform
 **PROGRAM:**
 ~~~
 
-Am=2.96;
-fm=361;
+Am=2.76;
 Ac=1.8*Am;
+fm=347;
 fc=10*fm;
 fs=10*fc;
+bp=3.46;
 t=0:1/fs:2/fm;
-bp=3.74;
-em=Am*cos(2*3.14*fm*t);
+em=Am*sin(2*3.14*fm*t);
 ec=Ac*cos(2*3.14*fc*t);
-ePM=Ac*cos(2*3.14*fc*t+bp*cos(2*3.14*fm*t));
-subplot(3,1,1);
+eFm=Ac.*cos(2*3.14*fc*t + bp*sin(2*3.14*fm*t));
+ePm=Ac.*cos(2*3.14*fc*t + bp*cos(2*3.14*fm*t));
+
+subplot(4,1,1);
 plot(t,em);
-subplot(3,1,2);
+subplot(4,1,2);
 plot(t,ec);
-subplot(3,1,3);
-plot(t,ePM);
+subplot(4,1,3);
+plot(t,eFm);
+subplot(4,1,4);
+plot(t,ePm);
+
 
 
 ~~~
@@ -104,24 +109,11 @@ plot(t,ePM);
 
 **OUTPUT WAVEFORM:**
 
-<img width="1365" height="677" alt="Screenshot 2026-11-02 215131" src="https://github.com/user-attachments/assets/2207a100-e825-451a-abcd-e9360ac3bcdf" />
-
-
+<img width="1600" height="850" alt="image" src="https://github.com/user-attachments/assets/2fabeecf-a385-4b0e-8f08-33c1d383dcea" />
 
 
 **TABULATION:**
-
-<img width="3406" height="2002" alt="IMG_20261102_191955_edit_140133076303616 jpg" src="https://github.com/user-attachments/assets/2d51984a-1ce9-4c16-9870-c83c9a70e00f" />
-
-
-
-**CALCULATION:**
-
-<img width="2736" height="1024" alt="IMG_20261102_215732_edit_142381959325148 jpg" src="https://github.com/user-attachments/assets/e445ab5f-5bd0-4dfc-89c1-9a22205520ee" />
-
-
-<img width="2439" height="3240" alt="IMG_20261102_215728_edit_142395208343375 jpg" src="https://github.com/user-attachments/assets/0cc91063-7087-4863-997a-ff15192f906a" />
-
+<img width="1600" height="859" alt="image" src="https://github.com/user-attachments/assets/5d9a8f8e-8c00-494c-9f8d-ed48c719e0e4" />
 
 
 
